@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Web Page with Three Rows</title>
+    <!-- Include Tailwind CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .title-row {
+        background-color: #3490dc;
+        color: white;
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 999; /* Ensures the title row is on top */
+      }
+
+      .content-row {
+        background-color: #38a169;
+        color: white;
+        padding: 1rem;
+        flex-grow: 1;
+        margin-top: 1rem; /* Adds space below the title row */
+      }
+
+      .footer-row {
+        background-color: #f6e05e;
+        color: white;
+        padding: 1rem;
+        position: sticky;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Title Row -->
+    <div class="title-row">
+      <h1 class="text-2xl font-bold">Title Row</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="content-row">
+      <!-- Task List Title -->
+      <div class="bg-purple-500 text-white p-4 mb-4">
+        <h2 class="text-2xl font-bold">Todo List</h2>
+      </div>
+
+      <!-- Task List Container -->
+      <div class="mb-4">
+        <!-- Todo Item 1 -->
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 1. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Todo Item 2 -->
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 2. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Add more todo items as needed -->
+        <!-- Todo Item 3 -->
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 3. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 3. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 3. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 3. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 3. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 3. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center mb-4">
+          <input type="checkbox" class="rounded-full mr-2" />
+          <div class="text-sm">
+            <p>
+              Description for Task 3. This can be a multiline description if
+              needed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Add more todo items as needed -->
+      </div>
+    </div>
+
+    <!-- Footer Row -->
+    <!-- Footer -->
+    <div class=" footer-row ">
+      <!-- Input Field and Submit Button Container -->
+      <div class="flex mb-2">
+        <input
+          type="text"
+          class="flex-1 px-3 py-2 rounded-lg border border-gray-300"
+          placeholder="Add a new task"
+        />
+        <button
+          class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg ml-2"
+        >
+          Add Task
+        </button>
+      </div>
+      <!-- Bottom Tab Menu -->
+      <div class="flex justify-between">
+        <div class="flex space-x-4">
+          <button class="text-white hover:text-gray-300">Home</button>
+          <button class="text-white hover:text-gray-300">Tasks</button>
+          <button class="text-white hover:text-gray-300">Profile</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
