@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { View, StyleSheet, ScrollView, Image } from "react-native";
+import { ScrollView, StyleSheet, View, Platform } from "react-native";
 // import { Button } from '@rneui/base';
-import { Text, Card, Button, Input } from "@rneui/themed";
+import { Button, Card, Input } from "@rneui/themed";
 
-import DateTimePicker from "@react-native-community/datetimepicker";
+// import DateTimePicker from "@react-native-community/datetimepicker";
+import DateTimePicker from "react-native-modal-datetime-picker";
 
 function Home() {
   const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
 
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
+  const toggleDatePicker = () => {
+    setShow(!show);
+  }
+  
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -40,7 +52,12 @@ function Home() {
           <Card.Title>Date Time Component</Card.Title>
           <Card.Divider />
           <View style={{ flexDirection: "column", alignItems: "center" }}>
-            <DateTimePicker value={date} />
+          <Button onPress={() => toggleDatePicker()} title="Date picker" buttonStyle={{backgroundColor: "#1d4ed8"}} />
+          <DateTimePicker
+          isVisible={show}
+          onConfirm={()=>{setShow(false)}}
+          onCancel={()=>{setShow(false)}}
+        />
           </View>
         </Card>
       </View>

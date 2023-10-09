@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Text, StyleSheet, View, ScrollView } from "react-native";
+import { FlatList, Text, StyleSheet, View, ScrollView, RefreshControl } from "react-native";
 
 import { Card, CheckBox, Button, Input, Icon } from "@rneui/themed";
 
@@ -61,6 +61,7 @@ const todos = [
 function Todo() {
   const { todos, fetchTodos, addTodo, toggleTodo } = useTodoStore();
   const [todo, setTodo] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     fetchTodos();
@@ -74,7 +75,13 @@ function Todo() {
     });
     setTodo("");
   };
-
+  const handleRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => {
+      fetchTodos();
+      setRefreshing(false)
+    }, 500);
+  };
   const renderItem = ({ item }) => {
     return (
       <Card containerStyle={{margin:5}}>
@@ -130,6 +137,9 @@ function Todo() {
         data={todos}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+        }
       />
     </View>
   );
