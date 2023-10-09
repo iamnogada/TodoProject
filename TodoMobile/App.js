@@ -15,15 +15,6 @@ import Todo from "./src/pages/Todo";
 
 const BottomTab = createBottomTabNavigator();
 
-// const theme1 = createTheme({
-//   lightColors: {
-//     ...Platform.select({
-//       default: lightColors.platform.android,
-//       ios: lightColors.platform.ios,
-//     }),
-//   },
-// });
-
 export default function App() {
   return (
     
@@ -32,23 +23,28 @@ export default function App() {
         >
           <BottomTab.Navigator
             screenOptions={{
-              inactiveTintColor: "orange",
-              backgroundColor: "#orange",
-              tabBarActiveTintColor: "tomato",
-              tabBarInactiveTintColor: "blue",
+              tabBarActiveTintColor: "white",
+              tabBarInactiveTintColor: "#cbd5e1",
               tabBarStyle: {
-                backgroundColor: "#eee",
+                backgroundColor: "#2563eb",
                 borderTopWidth: 0,
                 elevation: 0,
                 shadowOpacity: 0,
-                height: 80,
+                height: 90,
+                paddingTop: 10,
               },
               tabBarLabelStyle: {
                 fontSize: 15,
+                fontWeight: "bold",
               },
               headerStyle: {
-                backgroundColor: "orange",
+                backgroundColor: "#2563eb",
                 height: 100,
+              },
+              headerTintColor:"#fff",
+              headerTitleStyle: {
+                fontSize: 20,
+                fontWeight: "bold",
               },
             }}
           >

@@ -16,7 +16,7 @@ function Home() {
           <Card.Divider />
           <Input
             placeholder="INPUT WITH ERROR MESSAGE"
-            errorStyle={{ color: "red" }}
+            errorStyle={{ color: "#1d4ed8" }}
             errorMessage="ENTER A VALID ERROR HERE"
           />
         </Card>
@@ -31,7 +31,7 @@ function Home() {
             />
             <Button
               title="Submit"
-              buttonStyle={{ backgroundColor: "blue" }}
+              buttonStyle={{ backgroundColor: "#1d4ed8" }}
               // You can customize the button style here
             />
           </View>
