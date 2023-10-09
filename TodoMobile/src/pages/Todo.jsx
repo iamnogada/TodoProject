@@ -68,7 +68,8 @@ function Todo() {
   }, []);
 
   const handleAddTodo = () => {
-    if (!todo.todo) return;
+    
+    if (!todo) return;
     addTodo({
       todo,
       status: "pending",

@@ -1,23 +1,28 @@
+import { Platform } from 'react-native';
 import { create } from 'zustand'
 import 'react-native-get-random-values'
 import {v4 as uuidv4} from 'uuid';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = Platform.OS === 'ios'? 'http://127.0.0.1:5000': 'http://10.0.2.2:5000';
 
 const useTodoStore = create((set) => ({
     todos: [],
     fetchTodos: async () => {
-        const response = await fetch(
-            `${API_URL}/todos?_sort=dateTime&_order=desc`
-        );
-        const todos = await response.json();
-        set({ todos });
+        try {
+            const response = await fetch(
+                `${API_URL}/todos?_sort=dateTime&_order=desc`
+            );
+            const todos = await response.json();
+            set({ todos });
+        }catch (error) {
+            console.error('Error:', error);
+        }
+        
     },
     addTodo: (todo) => {
         todo.id = uuidv4();
         todo.dateTime = new Date().toISOString();
-        todo.status = "pending";
-
+        console.log("TODO-store:"+JSON.stringify(todo));
         fetch(`${API_URL}/todos`, {
             method: 'POST',
             headers: {
