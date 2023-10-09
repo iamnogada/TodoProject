@@ -1,12 +1,17 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useParams } from "react-router-dom";
 import Layout from "./components/Layout";
 
 function DynamicPage() {
   let location = useLocation();
+  const params = useParams();
   if("/" === location.pathname || "" ===location.pathname){
     location.pathname = "/Home";
   }
+  console.log(`URL: ./pages/${location.pathname.slice(1)}`);
+  console.log(`Location: ${location.pathname}`);
+  console.log(`Params: ${JSON.stringify(params)}`);
+
   const PageComponent = lazy(() =>
     import(`./pages/${location.pathname.slice(1)}`)
   );
