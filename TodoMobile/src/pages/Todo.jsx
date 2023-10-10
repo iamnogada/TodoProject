@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Text, StyleSheet, View, ScrollView, RefreshControl } from "react-native";
+import {
+  FlatList,
+  Text,
+  StyleSheet,
+  View,
+  ScrollView,
+  RefreshControl,
+} from "react-native";
 
 import { Card, CheckBox, Button, Input, Icon } from "@rneui/themed";
 
@@ -68,7 +75,6 @@ function Todo() {
   }, []);
 
   const handleAddTodo = () => {
-    
     if (!todo) return;
     addTodo({
       todo,
@@ -80,12 +86,12 @@ function Todo() {
     setRefreshing(true);
     setTimeout(() => {
       fetchTodos();
-      setRefreshing(false)
+      setRefreshing(false);
     }, 500);
   };
   const renderItem = ({ item }) => {
     return (
-      <Card containerStyle={{margin:5}}>
+      <Card containerStyle={{ margin: 5 }}>
         <View style={styles.card}>
           <CheckBox
             checked={item.status === "completed"}
@@ -141,6 +147,7 @@ function Todo() {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
         }
+        style={{ flex: 1 }}
       />
     </View>
   );
@@ -153,6 +160,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   list: {
+    flex:1,
     flexDirection: "column",
     padding: 10,
   },
