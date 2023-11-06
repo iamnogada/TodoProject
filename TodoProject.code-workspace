@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "TodoWeb"
+		},
+		{
+			"path": "TodoAPI"
 		}
 	]
 }
